@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   year:{
     textAlign: 'center',
-    color: '#FFFFFF',
+    color: '#AFFFFF',
 
   },
 
