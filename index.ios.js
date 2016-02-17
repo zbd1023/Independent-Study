@@ -1,4 +1,4 @@
-
+var Firebase = require('firebase');
 'use strict';
 import React, {
   AppRegistry,
