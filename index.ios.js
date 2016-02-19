@@ -37,9 +37,73 @@ var Main = React.createClass({
   },
 
   render() {
-    return <TabBarIOS
+    return (
+        
+		<Text>
+		asldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasd
+		</Text>
+
+
+
+//      <TabBarIOS
+//      tintColor="white"
+//      barTintColor="darkslateblue">
+//
+//      <TabBarIOS.Item
+//      title="Settings"
+//      icon={require('./settings.png')}
+//      //icon={{uri: base64Icon, scale: 3}}
+//      selected={this.state.selectedTab === 'blueTab'}
+//      onPress={() => {
+//            this.setState({
+//              selectedTab: 'blueTab',
+//            });
+//            }}>
+//
+//        {this._renderContent('#414A8C', 'Blue Tab')}
+//      </TabBarIOS.Item>
+//      <TabBarIOS.Item
+//          systemIcon="history"
+//          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+//          selected={this.state.selectedTab === 'redTab'}
+//          onPress={() => {
+//            this.setState({
+//              selectedTab: 'redTab',
+//              notifCount: this.state.notifCount + 1,
+//            });
+//          }}>
+//          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+//        </TabBarIOS.Item>
+//
+//      </TabBarIOS>
+      
+    );
+  }
+});
+
+class myApp extends React.Component {
+  render() {
+    return (
+		<View>
+      <NavigatorIOS
+        style={styles.nav}
+        initialRoute= {{
+          title:'Some App Name',
+          component: Main,
+          //leftButtonIcon:
+          //leftButtonIcon: {uri: base64Icon, scale: 3},
+          //leftButtonTitle:"lll"
+          //icon={require('./flux.png')}
+        }}
+
+      />
+		<Text >
+		lollollollollollollollollollol
+		</Text>
+		<TabBarIOS
       tintColor="white"
       barTintColor="darkslateblue">
+
       <TabBarIOS.Item
       title="Settings"
       icon={require('./settings.png')}
@@ -50,6 +114,7 @@ var Main = React.createClass({
               selectedTab: 'blueTab',
             });
             }}>
+
         {this._renderContent('#414A8C', 'Blue Tab')}
       </TabBarIOS.Item>
       <TabBarIOS.Item
@@ -64,27 +129,10 @@ var Main = React.createClass({
           }}>
           {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
         </TabBarIOS.Item>
-        
+
       </TabBarIOS>
-    ;
-  }
-});
-
-class myApp extends React.Component {
-  render() {
-    return (
-      <NavigatorIOS
-        style={styles.nav}
-        initialRoute= {{
-          title:'Some App Name',
-          component: Main,
-          //leftButtonIcon:
-          //leftButtonIcon: {uri: base64Icon, scale: 3},
-          //leftButtonTitle:"lll"
-          //icon={require('./flux.png')}
-        }}
-
-      />
+		
+		</View>
       // <View style={styles.container}>
       //   <View style={styles.top}>
       //     <Text style={styles.appName}>
@@ -118,7 +166,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    backgroundColor: '#000000',
+    backgroundColor: '#FFFFFF',
   },
   leftContainer:{
     marginLeft:10,
