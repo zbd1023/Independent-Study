@@ -45,37 +45,37 @@ var Main = React.createClass({
 
 
 
-//      <TabBarIOS
-//      tintColor="white"
-//      barTintColor="darkslateblue">
-//
-//      <TabBarIOS.Item
-//      title="Settings"
-//      icon={require('./settings.png')}
-//      //icon={{uri: base64Icon, scale: 3}}
-//      selected={this.state.selectedTab === 'blueTab'}
-//      onPress={() => {
-//            this.setState({
-//              selectedTab: 'blueTab',
-//            });
-//            }}>
-//
-//        {this._renderContent('#414A8C', 'Blue Tab')}
-//      </TabBarIOS.Item>
-//      <TabBarIOS.Item
-//          systemIcon="history"
-//          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
-//          selected={this.state.selectedTab === 'redTab'}
-//          onPress={() => {
-//            this.setState({
-//              selectedTab: 'redTab',
-//              notifCount: this.state.notifCount + 1,
-//            });
-//          }}>
-//          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
-//        </TabBarIOS.Item>
-//
-//      </TabBarIOS>
+      <TabBarIOS
+      tintColor="white"
+      barTintColor="darkslateblue">
+
+      <TabBarIOS.Item
+      title="Settings"
+      icon={require('./settings.png')}
+      //icon={{uri: base64Icon, scale: 3}}
+      selected={this.state.selectedTab === 'blueTab'}
+      onPress={() => {
+            this.setState({
+              selectedTab: 'blueTab',
+            });
+            }}>
+
+        {this._renderContent('#414A8C', 'Blue Tab')}
+      </TabBarIOS.Item>
+      <TabBarIOS.Item
+          systemIcon="history"
+          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
+          selected={this.state.selectedTab === 'redTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'redTab',
+              notifCount: this.state.notifCount + 1,
+            });
+          }}>
+          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
+        </TabBarIOS.Item>
+
+      </TabBarIOS>
       
     );
   }
