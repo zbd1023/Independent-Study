@@ -9,10 +9,10 @@ import React, {
   NavigatorIOS,
   TabBarIOS,
   View,
-
-
 } from 'react-native';
-var base64Icon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAQAAACSR7JhAAADtUlEQVR4Ac3YA2Bj6QLH0XPT1Fzbtm29tW3btm3bfLZtv7e2ObZnms7d8Uw098tuetPzrxv8wiISrtVudrG2JXQZ4VOv+qUfmqCGGl1mqLhoA52oZlb0mrjsnhKpgeUNEs91Z0pd1kvihA3ULGVHiQO2narKSHKkEMulm9VgUyE60s1aWoMQUbpZOWE+kaqs4eLEjdIlZTcFZB0ndc1+lhB1lZrIuk5P2aib1NBpZaL+JaOGIt0ls47SKzLC7CqrlGF6RZ09HGoNy1lYl2aRSWL5GuzqWU1KafRdoRp0iOQEiDzgZPnG6DbldcomadViflnl/cL93tOoVbsOLVM2jylvdWjXolWX1hmfZbGR/wjypDjFLSZIRov09BgYmtUqPQPlQrPapecLgTIy0jMgPKtTeob2zWtrGH3xvjUkPCtNg/tm1rjwrMa+mdUkPd3hWbH0jArPGiU9ufCsNNWFZ40wpwn+62/66R2RUtoso1OB34tnLOcy7YB1fUdc9e0q3yru8PGM773vXsuZ5YIZX+5xmHwHGVvlrGPN6ZSiP1smOsMMde40wKv2VmwPPVXNut4sVpUreZiLBHi0qln/VQeI/LTMYXpsJtFiclUN+5HVZazim+Ky+7sAvxWnvjXrJFneVtLWLyPJu9K3cXLWeOlbMTlrIelbMDlrLenrjEQOtIF+fuI9xRp9ZBFp6+b6WT8RrxEpdK64BuvHgDk+vUy+b5hYk6zfyfs051gRoNO1usU12WWRWL73/MMEy9pMi9qIrR4ZpV16Rrvduxazmy1FSvuFXRkqTnE7m2kdb5U8xGjLw/spRr1uTov4uOgQE+0N/DvFrG/Jt7i/FzwxbA9kDanhf2w+t4V97G8lrT7wc08aA2QNUkuTfW/KimT01wdlfK4yEw030VfT0RtZbzjeMprNq8m8tnSTASrTLti64oBNdpmMQm0eEwvfPwRbUBywG5TzjPCsdwk3IeAXjQblLCoXnDVeoAz6SfJNk5TTzytCNZk/POtTSV40NwOFWzw86wNJRpubpXsn60NJFlHeqlYRbslqZm2jnEZ3qcSKgm0kTli3zZVS7y/iivZTweYXJ26Y+RTbV1zh3hYkgyFGSTKPfRVbRqWWVReaxYeSLarYv1Qqsmh1s95S7G+eEWK0f3jYKTbV6bOwepjfhtafsvUsqrQvrGC8YhmnO9cSCk3yuY984F1vesdHYhWJ5FvASlacshUsajFt2mUM9pqzvKGcyNJW0arTKN1GGGzQlH0tXwLDgQTurS8eIQAAAABJRU5ErkJggg==';
+
+var List = require('./listView');
+
 var Main = React.createClass({
   statics: {
     title: '<TabBarIOS>',
@@ -38,16 +38,9 @@ var Main = React.createClass({
 
   render() {
     return (
-        
-		<Text>
-		asldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasd
-		</Text>
-
-
-
       <TabBarIOS
-      tintColor="white"
-      barTintColor="darkslateblue">
+      tintColor="black"
+      barTintColor="silver">
 
       <TabBarIOS.Item
       title="Settings"
@@ -59,8 +52,9 @@ var Main = React.createClass({
               selectedTab: 'blueTab',
             });
             }}>
-
-        {this._renderContent('#414A8C', 'Blue Tab')}
+        <View>
+        <List    />
+				</View>
       </TabBarIOS.Item>
       <TabBarIOS.Item
           systemIcon="history"
@@ -72,11 +66,15 @@ var Main = React.createClass({
               notifCount: this.state.notifCount + 1,
             });
           }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
-        </TabBarIOS.Item>
+		<View style = {styles.second}>
+			  <Text>
+		asldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafh
+		</Text>
+		</View>
+		</TabBarIOS.Item>
 
       </TabBarIOS>
-      
+
     );
   }
 });
@@ -84,7 +82,7 @@ var Main = React.createClass({
 class myApp extends React.Component {
   render() {
     return (
-		<View>
+
       <NavigatorIOS
         style={styles.nav}
         initialRoute= {{
@@ -97,42 +95,7 @@ class myApp extends React.Component {
         }}
 
       />
-		<Text >
-		lollollollollollollollollollol
-		</Text>
-		<TabBarIOS
-      tintColor="white"
-      barTintColor="darkslateblue">
 
-      <TabBarIOS.Item
-      title="Settings"
-      icon={require('./settings.png')}
-      //icon={{uri: base64Icon, scale: 3}}
-      selected={this.state.selectedTab === 'blueTab'}
-      onPress={() => {
-            this.setState({
-              selectedTab: 'blueTab',
-            });
-            }}>
-
-        {this._renderContent('#414A8C', 'Blue Tab')}
-      </TabBarIOS.Item>
-      <TabBarIOS.Item
-          systemIcon="history"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
-          selected={this.state.selectedTab === 'redTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
-            });
-          }}>
-          {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
-        </TabBarIOS.Item>
-
-      </TabBarIOS>
-		
-		</View>
       // <View style={styles.container}>
       //   <View style={styles.top}>
       //     <Text style={styles.appName}>
@@ -145,6 +108,9 @@ class myApp extends React.Component {
 }
 }
 var styles = StyleSheet.create({
+	second:{
+		paddingTop: 65,
+	},
   nav:{
     flex:1,
     backgroundColor: '#111111',
