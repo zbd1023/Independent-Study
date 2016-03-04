@@ -1,16 +1,14 @@
 'use strict';
+
 import React, {
   AppRegistry,
   Component,
   Image,
   StyleSheet,
   Text,
-  NavigatorIOS,
-  TabBarIOS,
   View,
   ListView,
 } from 'react-native';
-
 
 var Main = React.createClass({
   getInitialState: function() {
@@ -22,10 +20,11 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <ListView contentContainerStyle={styles.list}
+      <ListView contentContainerStyle = {styles.list}
         dataSource={this.state.dataSource}
         renderRow={(rowData) => <Text style={styles.item}>{rowData}</Text>}
       />
+      //comment
     );
   },
 });
@@ -36,11 +35,6 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
 });
+
 module.exports = Main;
