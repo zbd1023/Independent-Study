@@ -22,7 +22,7 @@ var Main = React.createClass({
 
   getInitialState: function() {
     return {
-      selectedTab: 'redTab',
+      selectedTab: 'blueTab',
       notifCount: 0,
       presses: 0,
     };
@@ -43,7 +43,6 @@ var Main = React.createClass({
         <TabBarIOS.Item
           title="Settings"
           icon={require('./settings.png')}
-          //icon={{uri: base64Icon, scale: 3}}
           selected={this.state.selectedTab === 'blueTab'}
           onPress={() => {
             this.setState({
@@ -51,8 +50,8 @@ var Main = React.createClass({
             });
           }}
         >
-          <View>
-            <List style = {styles.list} />
+          <View style = {styles.viewForList}>
+            <List />
 				  </View>
         </TabBarIOS.Item>
 
@@ -67,11 +66,9 @@ var Main = React.createClass({
             });
           }}
         >
-		      <View style = {styles.sampleText}>
-			      <Text>
-		          asldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafhsfhasdasldkfjsdkajakshsdafh
-            </Text>
-		      </View>
+		      <View style = {styles.viewForList}>
+            <List />
+          </View>
 		    </TabBarIOS.Item>
       </TabBarIOS>
     );
@@ -82,7 +79,7 @@ class myApp extends React.Component {
   render() {
     return (
       <NavigatorIOS
-        style={styles.nav}
+        style = {styles.nav}
         initialRoute= {{
           title:'Some App Name',
           component: Main,
@@ -94,14 +91,14 @@ class myApp extends React.Component {
 }
 
 var styles = StyleSheet.create({
-  list: {
-    paddingTop: 65,
+  viewForList: {
+    marginTop: 65,
+    height: 400,
+    borderWidth: 5,
+    borderColor: 'silver',
   },
-	sampleText: {
-		paddingTop: 65,
-	},
   nav: {
-    flex:1,
+    flex: 1,
     backgroundColor: '#111111',
   },
 });
