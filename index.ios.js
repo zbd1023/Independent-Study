@@ -10,8 +10,24 @@ import React, {
   TabBarIOS,
   View,
 } from 'react-native';
-
+var Firebase = require('firebase');
+var ref = new Firebase("https://devils-reminder.firebaseio.com/web/data")
 var List = require('./listView');
+// Get a database reference to our posts
+var ref = new Firebase("https://devils-reminder.firebaseio.com/web/data");
+var data;
+var styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#f2f2f2',
+    flex: 1,
+  },
+});
+// Attach an asynchronous callback to read the data at our posts reference
+ref.on("value", function(snapshot) {
+  data = snapshot.val();
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
 
 var Main = React.createClass({
   statics: {
@@ -35,6 +51,7 @@ var Main = React.createClass({
       </View>
     );
   },
+  
 
   render() {
     return (
@@ -52,8 +69,8 @@ var Main = React.createClass({
               selectedTab: 'blueTab',
             });
             }}>
-        <View>
-        <List    />
+        <View style = {styles.container}>
+          Will this work?
 				</View>
       </TabBarIOS.Item>
       <TabBarIOS.Item
