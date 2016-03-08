@@ -9,6 +9,7 @@ import React, {
   View,
   ListView,
 } from 'react-native';
+var ListItem = require('./ListItem');
 
 var Main = React.createClass({
   statics: {
@@ -16,35 +17,40 @@ var Main = React.createClass({
     description: 'Performant, scrollable list of data.'
   },
 
+
+  _renderItem(item) {
+    return (
+      <ListItem item={item} onPress={() => {}} />
+    );
+  },
+
   getInitialState: function() {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
-      dataSource: ds.cloneWithRows(['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6']),
+      dataSource: ds.cloneWithRows(['Class 1', 'Class 2']),
     };
   },
 
   render: function() {
     return (
-      <ListView contentContainerStyle = {styles.list}
+      <ListView
         dataSource = {this.state.dataSource}
-        renderRow = {(rowData) => <Text style = {styles.item}>{rowData}</Text>}
-      />
+        renderRow={this._renderItem}
+      style={styles.listview}/>
       //comment
     );
   },
 });
 
 var styles = StyleSheet.create({
-    list: {
-      justifyContent: 'center',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
+    listview: {
+      flex: 1,
     },
     item: {
       backgroundColor: '#CCC',
-      margin: 10, 
+      margin: 10,
       width: 300,
-      height: 75,
+      height: 25,
     },
 });
 
