@@ -91,11 +91,12 @@ class myApp extends React.Component {
 }
 
 var styles = StyleSheet.create({
+  container:{
+    backgroundColor: '#f2f2f2',
+    flex: 1,
+  },
   viewForList: {
-    marginTop: 65,
-    height: 400,
-    borderWidth: 5,
-    borderColor: 'silver',
+    height: 2000,
   },
   nav: {
     flex: 1,
