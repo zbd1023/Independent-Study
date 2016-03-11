@@ -12,9 +12,10 @@ import React, {
   View,
 } from 'react-native';
 
-var List = require('./listView');
+var List = require('./listView'); /* import list view class from listView.js*/
 
 var Main = React.createClass({
+  /*Tab bar class */
   statics: {
     title: '<TabBarIOS>',
     description: 'Tab-based navigation.',
@@ -52,6 +53,8 @@ var Main = React.createClass({
         >
           <View style = {styles.viewForList}>
             <List />
+            <Text>// When Settings tab is selected, render this List class
+            </Text>
 				  </View>
         </TabBarIOS.Item>
 
@@ -68,6 +71,8 @@ var Main = React.createClass({
         >
 		      <View style = {styles.viewForList}>
             <List />
+            <Text>// When history tab is selected, render this List class
+            </Text>
           </View>
 		    </TabBarIOS.Item>
       </TabBarIOS>
@@ -76,16 +81,16 @@ var Main = React.createClass({
 });
 
 class myApp extends React.Component {
+  /* main app class */
   render() {
     return (
       <NavigatorIOS
         style = {styles.nav}
         initialRoute= {{
           title:'Some App Name',
-          component: Main,
+          component: Main,/*Tab bar class*/
         }}
       />
-      //comment
     );
   }
 }

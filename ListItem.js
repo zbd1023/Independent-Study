@@ -8,6 +8,7 @@ class ListItem extends React.Component {
       <TouchableHighlight onPress={this.props.onPress}>
         <View style={styles.li}>
           <Text style={styles.liText}>{this.props.item}</Text>
+          <Text>this.props.item is the dataSource</Text>
         </View>
       </TouchableHighlight>
     );

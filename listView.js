@@ -9,7 +9,7 @@ import React, {
   View,
   ListView,
 } from 'react-native';
-var ListItem = require('./ListItem');
+var ListItem = require('./ListItem'); // Require list item class from ListItem.js
 
 var Main = React.createClass({
   statics: {
@@ -21,6 +21,7 @@ var Main = React.createClass({
   _renderItem(item) {
     return (
       <ListItem item={item} onPress={() => {}} />
+      /* how to display a list item */
     );
   },
 
@@ -36,8 +37,8 @@ var Main = React.createClass({
       <ListView
         dataSource = {this.state.dataSource}
         renderRow={this._renderItem}
-      style={styles.listview}/>
-      //comment
+        style={styles.listview}/>
+      /*render a list view */
     );
   },
 });
