@@ -1,112 +1,97 @@
-var Firebase = require('firebase');
 'use strict';
-
 import React, {
-  AppRegistry,
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  NavigatorIOS,
-  TabBarIOS,
-  View,
+  AppRegistry, Component, StyleSheet, Text,
+  View, ListView, AlertIOS,
 } from 'react-native';
 
-var List = require('./listView'); /* import list view class from listView.js*/
+const styles = require('./styles.js');
+const StatusBar = require('./StatusBar.js');
+const ActionButton = require('./ActionButton.js');
+const ListItem = require('./ListItem.js');
 
-var Main = React.createClass({
-  /*Tab bar class */
-  statics: {
-    title: '<TabBarIOS>',
-    description: 'Tab-based navigation.',
-  },
-
-  getInitialState: function() {
-    return {
-      selectedTab: 'blueTab',
-      notifCount: 0,
-      presses: 0,
-    };
-  },
-
-  _renderContent: function(color: string, pageText: string, num?: number) {
-    return (
-      <View style={[styles.tabContent, {backgroundColor: color}]}>
-        <Text style={styles.tabText}>{pageText}</Text>
-        <Text style={styles.tabText}>{num} re-renders of the {pageText}</Text>
-      </View>
-    );
-  },
-
-  render() {
-    return (
-      <TabBarIOS tintColor="black" barTintColor="silver">
-        <TabBarIOS.Item
-          title="Settings"
-          icon={require('./settings.png')}
-          selected={this.state.selectedTab === 'blueTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'blueTab',
-            });
-          }}
-        >
-          <View style = {styles.viewForList}>
-            <List />
-            <Text>// When Settings tab is selected, render this List class
-            </Text>
-				  </View>
-        </TabBarIOS.Item>
-
-        <TabBarIOS.Item
-          systemIcon="history"
-          badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
-          selected={this.state.selectedTab === 'redTab'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
-            });
-          }}
-        >
-		      <View style = {styles.viewForList}>
-            <List />
-            <Text>// When history tab is selected, render this List class
-            </Text>
-          </View>
-		    </TabBarIOS.Item>
-      </TabBarIOS>
-    );
-  }
-});
+const Firebase = require('firebase');
+const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 
 class myApp extends React.Component {
-  /* main app class */
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      })
+    };
+    this.itemsRef = this.getRef().child('items');
+  }
+
+  getRef() {
+    return new Firebase(FirebaseUrl);
+  }
+
+  listenForItems(itemsRef) {
+    itemsRef.on('value', (snap) => {
+      //get children as an array
+      var items = [];
+      snap.forEach((child) => {
+        items.push({
+          title: child.val().title,
+          _key: child.key(),
+        });
+      });
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(items)
+      });
+    });
+  }
+
+  componentDidMount() {
+    this.listenForItems(this.itemsRef);
+  }
+
   render() {
     return (
-      <NavigatorIOS
-        style = {styles.nav}
-        initialRoute= {{
-          title:'Some App Name',
-          component: Main,/*Tab bar class*/
-        }}
-      />
+      <View style = {styles.container}>
+        <StatusBar title = "Devil's Reminder" />
+        <ListView
+          dataSource = {this.state.dataSource}
+          renderRow = {this._renderItem.bind(this)}
+          style = {styles.listview} />
+        <ActionButton title = "Add" onPress = {this._addItem.bind(this)} />
+      </View>
+    );
+  }
+
+  _addItem() {
+    AlertIOS.alert(
+      'Add New Item',
+      null,
+      [
+        {
+          text: 'Add',
+          onPress: (text) => {
+            this.itemsRef.push({title: text })
+          }
+        },
+      ],
+      'plain-text'
+    );
+  }
+
+  _renderItem(item) {
+    const onPress = () => {
+      AlertIOS.alert(
+        'Complete',
+        null,
+        [
+          {text: 'Complete', onPress: (text) => this.itemsRef.child(item._key).remove()},
+          {text: 'Cancel', onPress: (text) => console.log('Cancelled')}
+        ],
+        'default'
+      );
+    };
+    return (
+      <ListItem item={item} onPress={onPress} />
     );
   }
 }
-
-var styles = StyleSheet.create({
-  container:{
-    backgroundColor: '#f2f2f2',
-    flex: 1,
-  },
-  viewForList: {
-    height: 2000,
-  },
-  nav: {
-    flex: 1,
-    backgroundColor: '#111111',
-  },
-});
 
 AppRegistry.registerComponent('myApp', () => myApp);
