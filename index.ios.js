@@ -1,10 +1,9 @@
 'use strict';
-import React, {
-  AppRegistry, Component, StyleSheet, Text,
-  View, ListView, AlertIOS,
-} from 'react-native';
+const React = require('react-native');
+const {AppRegistry, ListView, StyleSheet, Text,
+  View, TouchableHighlight, AlertIOS} = React;
 
-const styles = require('./styles.js');
+const styles = require('./styles.js')
 const StatusBar = require('./StatusBar.js');
 const ActionButton = require('./ActionButton.js');
 const ListItem = require('./ListItem.js');
