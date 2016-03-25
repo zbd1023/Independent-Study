@@ -60,6 +60,7 @@ class myApp extends React.Component {
     return (
       <View style = {styles.container}>
         <StatusBar title = "Devil's Reminder" />
+        <Text>Till the next assignment is due </Text>
         <Text>{Math.floor((Math.floor(this.state.a/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60)} seconds</Text>
         <ListView
           dataSource = {this.state.dataSource}
