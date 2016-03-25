@@ -8,7 +8,7 @@ class StatusBar extends React.Component {
   render() {
     return (
       <View>
-        <View style = {styles.statusbar} />
+        <View style = {styles.statusbar}/>
         <View style = {styles.navbar}>
           <Text style = {styles.navbarTitle}>
             {this.props.title}
@@ -18,5 +18,6 @@ class StatusBar extends React.Component {
     );
   }
 }
+
 
 module.exports = StatusBar;
