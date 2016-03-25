@@ -8,7 +8,7 @@ const styles = require('./styles.js');
 const StatusBar = require('./StatusBar.js');
 const ActionButton = require('./ActionButton.js');
 const ListItem = require('./ListItem.js');
-
+const timer = require('react-native-timer');
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 
@@ -18,9 +18,16 @@ class myApp extends React.Component {
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
-      })
+      }),
+      count : Date.parse('Wed, 30 Mar 2016 00:00:00'),
+      a: 0
+
     };
     this.itemsRef = this.getRef().child('items');
+
+    console.log("lollol");
+    var d = new Date();
+    this.state.a = this.state.count - d.getTime();
   }
 
   getRef() {
@@ -46,11 +53,15 @@ class myApp extends React.Component {
   componentDidMount() {
     this.listenForItems(this.itemsRef);
   }
+  componentWillMount() {
+    timer.setInterval('foo', () => this.setState({a: this.state.a-1000}), 1000);
+  }
 
   render() {
     return (
       <View style = {styles.container}>
         <StatusBar title = "Devil's Reminder" />
+        <Text>Second till assignment due: {Math.floor(this.state.a/1000)}</Text>
         <ListView
           dataSource = {this.state.dataSource}
           renderRow = {this._renderItem.bind(this)}
@@ -60,6 +71,11 @@ class myApp extends React.Component {
     );
   }
 
+  computeDays(secs){
+    return
+
+
+  }
   _addItem() {
     AlertIOS.alert(
       'Add New Item',
@@ -75,6 +91,8 @@ class myApp extends React.Component {
       'plain-text'
     );
   }
+
+
 
   _renderItem(item) {
     const onPress = () => {
