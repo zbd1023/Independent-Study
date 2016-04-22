@@ -123,9 +123,9 @@ export class authenticate extends React.Component {
       password : this.state.pass
     }, function(error, userData) {
       if (error) {
-        Alert.alert("Error creating user:", id, pass,"ugh");
+        Alert.alert("Please check all fields before creating user.");
       } else {
-         Alert.alert("Successfully created user account with uid:", userData.uid);
+         Alert.alert("Successfully Registered!");
       }
     });
   }
