@@ -10,9 +10,11 @@ const ListItem = require('./ListItem.js');
 const timer = require('react-native-timer');
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
+const Authenticate = require('./authenticate.js')
 const Main = require('./main.js')
 const Detail = require('./detail.js')
 var ROUTES= {
+  authenticate :Authenticate,
   main : Main,
   detail: Detail
 }
@@ -27,7 +29,7 @@ renderScene(route, navigator){
     return (
       <Navigator
         style = {styles.container}
-        initialRoute = {{name: 'main'}}
+        initialRoute = {{name: 'authenticate'}}
         renderScene = {this.renderScene}
         configureScene = {()=> {return Navigator.SceneConfigs.FloatFromRight;}}
       />
