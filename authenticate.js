@@ -86,9 +86,9 @@ export class authenticate extends React.Component {
     },
  function authHandler(error, authData) {
   if (error) {
-    console.log("Login Failed!", error);
+    Alert.alert("Log-In error! Check your ID and Password");
   } else {
-    console.log("Authenticated successfully with payload:", authData);
+    //console.log("Authenticated successfully with payload:", authData);
     navigator.push({name: 'main'});
   }
 });
