@@ -16,6 +16,10 @@ export class detail extends React.Component{
     return(
       <View>
         <StatusBar title = {this.props.route.event.title} />
+        <View style = {styles.description}>
+        <Text >Due Date: </Text>
+        <Text>Assignment Description: </Text>
+        </View>
         <TouchableHighlight
           style = {styles.goBack}
           underlayColor = '#C6E2FF'
@@ -35,10 +39,11 @@ module.exports = detail;
 
 var styles = StyleSheet.create({
   goBack: {
-    marginTop: 500,
-    marginLeft: 50,
+    marginLeft: 61,
     marginRight: 50,
-    padding: 20,
+    position: 'absolute',
+    top: 560,
+    padding: 18,
     borderWidth: 5,
     borderColor: '#C6E2FF',
     borderRadius: 30,
@@ -47,5 +52,9 @@ var styles = StyleSheet.create({
   goBackText: {
     textAlign: 'center',
     fontSize: 15,
+  },
+
+  description: {
+    marginTop: 5,
   }
 })

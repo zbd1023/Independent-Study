@@ -82,7 +82,7 @@ export class mains extends React.Component{
   }
   _addItem() {
     AlertIOS.alert(
-      'Add New Item',
+      'Add New Assignment',
       null,
       [
         {
