@@ -23,7 +23,7 @@ export class mains extends React.Component{
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      count : Date.parse('Sat, 30 Apr 2016 00:00:00'),
+      count : Date.parse('Sat, 07 May 2016 00:00:00'),
       a: 0
 
     };

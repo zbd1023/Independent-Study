@@ -71,8 +71,8 @@ var styles = StyleSheet.create({
     borderRadius: 30,
     paddingTop: 14,
     paddingBottom: 16,
-    marginLeft: 75,
-    marginRight: 75,
+    marginLeft: 60,
+    marginRight: 60,
   },
 })
 

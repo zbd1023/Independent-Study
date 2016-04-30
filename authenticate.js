@@ -65,12 +65,12 @@ export class authenticate extends React.Component {
     secureTextEntry = {true}
     />
 
-    <View style = {styles2.login}>
-      <ActionButton style = {styles2.login}
+    <View style = {styles2.register}>
+      <ActionButton
         onPress={this._login.bind(this)} title="Log-In" />
     </View>
 
-    <View style = {styles2.register}>
+    <View style = {styles2.login}>
       <ActionButton
         onPress={this._register.bind(this)} title="Do not have an account?" />
     </View>
