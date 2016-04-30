@@ -1,13 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/davideast/firebase-react-native-sample
- */
 'use strict';
 
 const React = require('react-native');
 const Firebase = require('firebase');
 const StatusBar = require('./StatusBar');
-const ActionButton = require('./ActionButton');
+const ActionButton = require('./ActionButtonAuth');
 const ListItem = require('./ListItem');
 const styles = require('./styles.js')
 var navigator;
@@ -46,7 +42,6 @@ export class authenticate extends React.Component {
   getRef() {
     return new Firebase(FirebaseUrl);
   }
-  
 
   render() {
     return (
@@ -55,22 +50,27 @@ export class authenticate extends React.Component {
 
    <TextInput
     placeholder = "Email"
-    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+    style = {styles2.email}
     onChangeText={id => this.setState({id})}
     value={this.state.id}/>
 
     <TextInput
     placeholder = "Password"
-    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+    style= {styles2.password}
     onChangeText={(pass) => this.setState({pass})}
     value={this.state.pass}/>
-        
 
-        <ActionButton onPress={this._register.bind(this)} title="Register" />
+    <View style = {styles2.register}>
+      <ActionButton
+        onPress={this._register.bind(this)} title="Register" />
+    </View>
 
-        <ActionButton onPress={this._login.bind(this)} title="Log-In" />
+    <View style = {styles2.login}>
+      <ActionButton style = {styles2.login}
+        onPress={this._login.bind(this)} title="Log-In" />
+    </View>
 
-      </View>
+    </View>
     )
   }
 
@@ -78,7 +78,7 @@ export class authenticate extends React.Component {
     ref.authWithPassword({
       email    : this.state.id,
       password : this.state.pass
-    }, 
+    },
  function authHandler(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
@@ -115,7 +115,7 @@ export class authenticate extends React.Component {
         {text: 'OK', onPress: () => this.getRegister()},
       ],
     );
-  }  
+  }
 
   getRegister(){
     ref.createUser({
@@ -151,3 +151,35 @@ export class authenticate extends React.Component {
 
 }
 module.exports = authenticate;
+
+var styles2 = StyleSheet.create({
+  email: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginLeft: 25,
+    marginRight: 25,
+    marginBottom: 5,
+    marginTop: 10,
+  },
+
+  password: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginLeft: 25,
+    marginRight: 25,
+    marginBottom: 20,
+  },
+
+  register: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 5,
+  },
+
+  login: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
+})

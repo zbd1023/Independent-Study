@@ -61,9 +61,18 @@ var styles = StyleSheet.create({
     backgroundColor: constants.actionColor,
     borderColor: 'transparent',
     borderWidth: 1,
-    paddingLeft: 16,
     paddingTop: 14,
     paddingBottom: 16,
+  },
+  actionAuth: {
+    backgroundColor: constants.actionColor,
+    borderColor: 'transparent',
+    borderWidth: 1,
+    borderRadius: 30,
+    paddingTop: 14,
+    paddingBottom: 16,
+    marginLeft: 75,
+    marginRight: 75,
   },
 })
 

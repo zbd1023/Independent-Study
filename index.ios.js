@@ -13,16 +13,18 @@ const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 const Authenticate = require('./authenticate.js')
 const Main = require('./main.js')
 const Detail = require('./detail.js')
+
 var ROUTES= {
-  authenticate :Authenticate,
-  main : Main,
+  authenticate: Authenticate,
+  main: Main,
   detail: Detail
 }
+
 class myApp extends React.Component {
 
-renderScene(route, navigator){
-      var Component = ROUTES[route.name];
-      return <Component route={route} navigator={navigator} />;
+  renderScene(route, navigator){
+    var Component = ROUTES[route.name];
+    return <Component route={route} navigator={navigator} />;
   }
 
   render() {
@@ -33,7 +35,6 @@ renderScene(route, navigator){
         renderScene = {this.renderScene}
         configureScene = {()=> {return Navigator.SceneConfigs.FloatFromRight;}}
       />
-
     );
   }
 

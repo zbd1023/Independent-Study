@@ -28,7 +28,7 @@ export class mains extends React.Component{
 
     };
     this.itemsRef = this.getRef().child('items');
-    console.log("lollol");
+    console.log("hello");
     var d = new Date();
     this.state.a = this.state.count - d.getTime();
   }
@@ -64,8 +64,8 @@ export class mains extends React.Component{
     return (
       <View style = {styles.container}>
         <StatusBar title = "Devil's Reminder" />
-        <Text>Till the next assignment is due </Text>
-        <Text>{Math.floor((Math.floor(this.state.a/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60)} seconds</Text>
+        <Text style = {styles2.nextDue}>Time until next assignment is due:</Text>
+        <Text style = {styles2.timer}>{Math.floor((Math.floor(this.state.a/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60)} seconds</Text>
         <ListView
           dataSource = {this.state.dataSource}
           renderRow = {this._renderItem.bind(this)}
@@ -112,3 +112,15 @@ onDetailPress(){
   }
 }
 module.exports = mains;
+
+var styles2 = StyleSheet.create({
+  nextDue: {
+    textAlign: 'center',
+    marginTop: 10,
+  },
+
+  timer: {
+    textAlign: 'center',
+    marginBottom: 10,
+  }
+})
