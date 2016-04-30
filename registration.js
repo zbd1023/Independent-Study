@@ -26,7 +26,7 @@ const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 
   var ref = new Firebase(FirebaseUrl);
 
-export class authenticate extends React.Component {
+export class registration extends React.Component {
 
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ export class authenticate extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <StatusBar title="Devil's Reminder" />
+      <StatusBar title="Register here" />
 
    <TextInput
     placeholder = " Email"
@@ -65,35 +65,22 @@ export class authenticate extends React.Component {
     secureTextEntry = {true}
     />
 
-    <View style = {styles2.login}>
-      <ActionButton style = {styles2.login}
-        onPress={this._login.bind(this)} title="Log-In" />
-    </View>
-
     <View style = {styles2.register}>
       <ActionButton
-        onPress={this._register.bind(this)} title="Do not have an account?" />
+        onPress={this._register.bind(this)} title="Register" />
     </View>
 
-
+    <View style = {styles2.login}>
+      <ActionButton style = {styles2.login}
+        onPress={this._login.bind(this)} title="Already have an account?" />
+    </View>
 
     </View>
     )
   }
 
   _login(){
-    ref.authWithPassword({
-      email    : this.state.id,
-      password : this.state.pass
-    },
- function authHandler(error, authData) {
-  if (error) {
-    Alert.alert("Log-In error! Check your ID and Password");
-  } else {
-    //console.log("Authenticated successfully with payload:", authData);
-    navigator.push({name: 'main'});
-  }
-});
+    navigator.pop();
   }
 
 
@@ -114,7 +101,14 @@ export class authenticate extends React.Component {
   }
 
   _register(){
-    navigator.push({name: 'registration'});
+    Alert.alert(
+      'Register?!',
+      null,
+      [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => this.getRegister()},
+      ],
+    );
   }
 
   getRegister(){
@@ -126,6 +120,7 @@ export class authenticate extends React.Component {
         Alert.alert("Please check all fields before creating user.");
       } else {
          Alert.alert("Successfully Registered!");
+         navigator.pop();
       }
     });
   }
@@ -150,7 +145,7 @@ export class authenticate extends React.Component {
   }
 
 }
-module.exports = authenticate;
+module.exports = registration;
 
 var styles2 = StyleSheet.create({
   email: {

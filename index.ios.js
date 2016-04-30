@@ -13,11 +13,12 @@ const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 const Authenticate = require('./authenticate.js')
 const Main = require('./main.js')
 const Detail = require('./detail.js')
-
+const Registration = require('./registration.js')
 var ROUTES= {
   authenticate: Authenticate,
   main: Main,
-  detail: Detail
+  detail: Detail,
+  registration: Registration
 }
 
 class myApp extends React.Component {
