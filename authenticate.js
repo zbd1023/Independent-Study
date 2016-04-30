@@ -49,16 +49,21 @@ export class authenticate extends React.Component {
       <StatusBar title="Log into Devil's Reminder" />
 
    <TextInput
-    placeholder = "Email"
+    placeholder = " Email"
     style = {styles2.email}
     onChangeText={id => this.setState({id})}
-    value={this.state.id}/>
+    value={this.state.id}
+    autoCapitalize = 'none'
+    />
 
     <TextInput
-    placeholder = "Password"
+    placeholder = " Password"
     style= {styles2.password}
     onChangeText={(pass) => this.setState({pass})}
-    value={this.state.pass}/>
+    value={this.state.pass}
+    autoCapitalize = 'none'
+    secureTextEntry = {true}
+    />
 
     <View style = {styles2.register}>
       <ActionButton
