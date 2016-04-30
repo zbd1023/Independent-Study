@@ -91,6 +91,10 @@ export class mains extends React.Component{
             this.itemsRef.push({title: text })
           }
         },
+        {
+          text: 'Cancel',
+          onPress: (text) => {}
+        },
       ],
       'plain-text'
     );
