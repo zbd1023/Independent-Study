@@ -2,37 +2,42 @@ const React = require('react-native');
 const {StyleSheet} = React;
 
 const constants = {
-  actionColor: '#24CE84'
+  actionAuthColor: '#24CE84',
+  actionColor: '#ea6b5d'
 };
 
 var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'f2f2f2'
   },
   listview: {
     flex: 1,
   },
-  li: {
-    backgroundColor: '#fff',
-    borderBottomColor: '#eee',
-    borderColor: 'transparent',
-    borderWidth: 1,
-    paddingLeft: 16,
-    paddingTop: 14,
-    paddingBottom: 16,
-  },
   liContainer: {
     flex: 2,
   },
-  liText: {
+  li: {
+    backgroundColor: 'e2f1ff',
+    paddingLeft: 15,
+    paddingTop: 15,
+    paddingBottom: 20,
+    marginBottom: 2,
+    marginTop: 2,
+  },
+  liTitle: {
     color: '#333',
     fontSize: 16,
+    marginBottom: 5,
+  },
+  liDue: {
+    color: '#333',
+    fontSize: 14,
   },
   navbar: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#005ca7',
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     borderWidth: 1,
@@ -41,7 +46,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row'
   },
   navbarTitle: {
-    color: '#444',
+    color: 'white',
     fontSize: 16,
     fontWeight: "500"
   },
@@ -61,14 +66,17 @@ var styles = StyleSheet.create({
     backgroundColor: constants.actionColor,
     borderColor: 'transparent',
     borderWidth: 1,
+    borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
+    marginLeft: 60,
+    marginRight: 60,
   },
   actionAuth: {
-    backgroundColor: constants.actionColor,
+    backgroundColor: constants.actionAuthColor,
     borderColor: 'transparent',
     borderWidth: 1,
-    borderRadius: 30,
+    borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
     marginLeft: 60,

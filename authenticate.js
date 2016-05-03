@@ -3,7 +3,9 @@
 const React = require('react-native');
 const Firebase = require('firebase');
 const StatusBar = require('./StatusBar');
-const ActionButton = require('./ActionButtonAuth');
+const StatusBarAuth = require('./StatusBarAuth');
+const ActionButtonAuth = require('./ActionButtonAuth');
+const ActionButton  = require('./ActionButton');
 const ListItem = require('./ListItem');
 const styles = require('./styles.js')
 var navigator;
@@ -24,7 +26,7 @@ const {
 
 const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 
-  var ref = new Firebase(FirebaseUrl);
+var ref = new Firebase(FirebaseUrl);
 
 export class authenticate extends React.Component {
 
@@ -45,39 +47,37 @@ export class authenticate extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      <StatusBar title="Devil's Reminder" />
 
-   <TextInput
-    placeholder = " Email"
-    style = {styles2.email}
-    onChangeText={id => this.setState({id})}
-    value={this.state.id}
-    autoCapitalize = 'none'
-    />
+  <View style={styles.container}>
+    <StatusBarAuth title="Devil's Reminder" />
 
     <TextInput
-    placeholder = " Password"
-    style= {styles2.password}
-    onChangeText={(pass) => this.setState({pass})}
-    value={this.state.pass}
-    autoCapitalize = 'none'
-    secureTextEntry = {true}
-    />
+      placeholder = "Email"
+      style = {styles2.email}
+      onChangeText={id => this.setState({id})}
+      value={this.state.id}
+      autoCapitalize = 'none' />
 
-    <View style = {styles2.register}>
-      <ActionButton
-        onPress={this._login.bind(this)} title="Log-In" />
-    </View>
+    <TextInput
+      placeholder = "Password"
+      style= {styles2.password}
+      onChangeText={(pass) => this.setState({pass})}
+      value={this.state.pass}
+      autoCapitalize = 'none'
+      secureTextEntry = {true} />
 
     <View style = {styles2.login}>
+      <ActionButtonAuth
+        onPress={this._login.bind(this)} title="Log In" />
+    </View>
+
+    <View style = {styles2.noAcc}>
       <ActionButton
-        onPress={this._register.bind(this)} title="Do not have an account?" />
+        onPress={this._register.bind(this)} title="Don't have an account?" />
     </View>
 
+  </View>
 
-
-    </View>
     )
   }
 
@@ -95,7 +95,6 @@ export class authenticate extends React.Component {
   }
 });
   }
-
 
   _addItem() {
     AlertIOS.alert(
@@ -161,6 +160,7 @@ var styles2 = StyleSheet.create({
     marginRight: 25,
     marginBottom: 5,
     marginTop: 10,
+    padding: 5,
   },
 
   password: {
@@ -169,16 +169,17 @@ var styles2 = StyleSheet.create({
     borderWidth: 1,
     marginLeft: 25,
     marginRight: 25,
-    marginBottom: 20,
-  },
-
-  register: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 5,
+    marginBottom: 10,
+    padding: 5,
   },
 
   login: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+
+  noAcc: {
     marginLeft: 10,
     marginRight: 10,
   },

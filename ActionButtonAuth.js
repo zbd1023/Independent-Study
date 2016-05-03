@@ -10,7 +10,7 @@ class ActionButtonAuth extends React.Component {
     return (
       <View style = {styles.actionAuth}>
         <TouchableHighlight
-          underlayColor = {constants.actionColor}
+          underlayColor = {constants.actionAuthColor}
           onPress = {this.props.onPress}>
           <Text style = {styles.actionText}>
             {this.props.title}

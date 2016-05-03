@@ -10,6 +10,7 @@ const ListItem = require('./ListItem.js');
 const timer = require('react-native-timer');
 const Firebase = require('firebase');
 const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
+
 var navigator;
 var route;
 var minimum = Number.MAX_VALUE;
@@ -77,25 +78,40 @@ export class mains extends React.Component{
   }
 
   render() {
+    var days = Math.floor((Math.floor(this.state.a/1000)) / 86400);
+    var hours = Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600);
+    var minutes = Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60);
+    var seconds = Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60);
     return (
       <View style = {styles.container}>
         <StatusBar title = "Devil's Reminder" />
         <Text style = {styles2.nextDue}>Time until "{due}" is due:</Text>
-        <Text style = {styles2.timer}>{Math.floor((Math.floor(this.state.a/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60)} seconds</Text>
-     <ListView
+        <View style = {styles2.timerView}>
+          <Text style = {styles2.timer}>
+            {days} days
+          </Text>
+          <Text style = {styles2.timer}>
+            {hours} hours
+          </Text>
+          <Text style = {styles2.timer}>
+            {minutes} minutes
+          </Text>
+          <Text style = {styles2.timer}>
+            {seconds} seconds
+          </Text>
+        </View>
+        <ListView
           dataSource = {this.state.dataSource}
           renderRow = {this._renderItem.bind(this)}
           style = {styles.listview}/>
-        
       </View>
     );
   }
 
   computeDays(secs){
     return
-
-
   }
+
   _addItem() {
     AlertIOS.alert(
       'Add New Assignment',
@@ -140,12 +156,17 @@ var styles2 = StyleSheet.create({
   nextDue: {
     textAlign: 'center',
     marginTop: 10,
+    marginBottom: 4,
+    fontSize: 14,
+  },
+
+  timerView: {
+    marginLeft: 150,
+    marginBottom: 8,
   },
 
   timer: {
-    textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 2,
+    fontSize: 14,
   }
 })
-
-

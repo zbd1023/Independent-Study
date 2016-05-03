@@ -10,11 +10,12 @@ class ListItem extends React.Component {
     return (
       <TouchableHighlight onPress = {this.props.onPress} >
         <View style = {styles.li}>
-          <Text style = {styles.liText}>
-            {this.props.item.title+'\n'}
-            {'Due Date: '+this.props.item.date +'\n'}
+          <Text style = {styles.liTitle}>
+            {this.props.item.title}
           </Text>
-         
+          <Text style = {styles.liDue}>
+            {'Due Date: ' + this.props.item.date}
+          </Text>
         </View>
       </TouchableHighlight>
     );

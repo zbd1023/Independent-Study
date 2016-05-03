@@ -11,9 +11,6 @@ var timerId = 0;
 var reactMixin = require('react-mixin');
 var timerMixin = require('react-timer-mixin');
 
-
-
-
 class detail extends React.Component{
   constructor(props) {
     super(props);
@@ -25,18 +22,31 @@ class detail extends React.Component{
   }
 
   render(route, navigator){
+    var days = Math.floor((Math.floor(this.state.time/1000)) / 86400);
+    var hours = Math.floor(((Math.floor(this.state.time/1000)) % 86400) / 3600);
+    var minutes = Math.floor((((Math.floor(this.state.time/1000)) % 86400) % 3600) / 60);
+    var seconds = Math.floor((((Math.floor(this.state.time/1000)) % 86400) % 3600) % 60);
     return(
       <View>
         <StatusBar title = {this.props.route.event.title} />
         <View style = {styles.descriptions}>
-        <Text>Due Date: {this.props.route.event.date+'\n'}</Text>
-        <Text>Assignment Description: {this.props.route.event.description}</Text>
-        <Text>This is due in: </Text>
-        <Text style = {styles2.timer}>{Math.floor((Math.floor(this.state.time/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.time/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.time/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.time/1000)) % 86400) % 3600) % 60)} seconds</Text>
+          <Text style = {styles2.description}>Assignment Description: {this.props.route.event.description}</Text>
+          <Text style = {styles2.dueDate}>Due Date: {this.props.route.event.date}</Text>
+          <Text style = {styles2.dueIn}>This is due in:     {days} days </Text>
+          <Text style = {styles2.timer}>
+            {hours} hours
+          </Text>
+          <Text style = {styles2.timer}>
+            {minutes} minutes
+          </Text>
+          <Text style = {styles2.timer}>
+            {seconds} seconds
+          </Text>
         </View>
+
         <TouchableHighlight
           style = {styles.goBack}
-          underlayColor = '#C6E2FF'
+          underlayColor = 'e2f1ff'
           onPress = {this.onBackPress} >
           <Text style = {styles.goBackText}>Go back to list of assignments</Text>
         </TouchableHighlight>
@@ -72,7 +82,8 @@ var styles = StyleSheet.create({
     top: 560,
     padding: 18,
     borderWidth: 5,
-    borderColor: '#C6E2FF',
+    borderColor: 'e2f1ff',
+    backgroundColor: 'e2f1ff',
     borderRadius: 30,
   },
 
@@ -85,14 +96,27 @@ var styles = StyleSheet.create({
     marginTop: 5,
   }
 })
-var styles2 = StyleSheet.create({
-  nextDue: {
-    textAlign: 'center',
-    marginTop: 10,
-  },
 
-  timer: {
-    textAlign: 'center',
+var styles2 = StyleSheet.create({
+  description: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginBottom: 15,
+    fontSize: 16,
+  },
+  dueDate: {
+    marginLeft: 10,
     marginBottom: 10,
+    fontSize: 14,
+  },
+  dueIn: {
+    marginLeft: 10,
+    marginBottom: 2,
+    fontSize: 14,
+  },
+  timer: {
+    marginLeft: 118,
+    marginBottom: 2,
+    fontSize: 14,
   }
 })
