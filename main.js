@@ -12,6 +12,13 @@ const Firebase = require('firebase');
 const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
 var navigator;
 var route;
+var minimum = Number.MAX_VALUE;
+var d =new Date();
+var due = "";
+var timerId = 0;
+var index = 0;
+var reactMixin = require('react-mixin');
+var timerMixin = require('react-timer-mixin');
 
 export class mains extends React.Component{
   constructor(props) {
@@ -23,14 +30,10 @@ export class mains extends React.Component{
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
-      count : Date.parse('Sat, 07 May 2016 00:00:00'),
       a: 0
-
     };
     this.itemsRef = this.getRef().child('items');
-    console.log("hello");
-    var d = new Date();
-    this.state.a = this.state.count - d.getTime();
+    this.state.a  = 0;
   }
 
   getRef() {
@@ -38,38 +41,51 @@ export class mains extends React.Component{
   }
 
   listenForItems(itemsRef) {
+    var items = [];
     itemsRef.on('value', (snap) => {
       //get children as an array
-      var items = [];
       snap.forEach((child) => {
         items.push({
           title: child.val().title,
+          //figure out how to get time.
+          date: child.val().date,
+          description: child.val().description,
           _key: child.key(),
         });
       });
+
+      for(var a = 0; a<items.length; a++){
+        if(minimum > Date.parse(items[a].date)){
+          minimum = Date.parse(items[a].date);
+          due = items[a].title;
+        }
+      }
+      this.state.a = minimum - Date.now();
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(items)
+        dataSource: this.state.dataSource.cloneWithRows(items),
       });
     });
   }
-
+ mixins: [TimerMixin];
   componentDidMount() {
     this.listenForItems(this.itemsRef);
+        this.setInterval(
+          () => {this.setState({a: this.state.a-1000});}, 1000);
   }
-  componentWillMount() {
-    timer.setInterval('foo', () => this.setState({a: this.state.a-1000}), 1000);
+  componentDidUnMount(){
+    clearInterval(timerId);
   }
 
   render() {
     return (
       <View style = {styles.container}>
         <StatusBar title = "Devil's Reminder" />
-        <Text style = {styles2.nextDue}>Time until next assignment is due:</Text>
+        <Text style = {styles2.nextDue}>Time until "{due}" is due:</Text>
         <Text style = {styles2.timer}>{Math.floor((Math.floor(this.state.a/1000)) / 86400)} days {Math.floor(((Math.floor(this.state.a/1000)) % 86400) / 3600)} hours {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) / 60)} minutes {Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60)} seconds</Text>
-        <ListView
+     <ListView
           dataSource = {this.state.dataSource}
           renderRow = {this._renderItem.bind(this)}
-          style = {styles.listview} />
+          style = {styles.listview}/>
         <ActionButton title = "Add" onPress = {this._addItem.bind(this)} />
       </View>
     );
@@ -102,12 +118,13 @@ export class mains extends React.Component{
 
 onDetailPress(){
 
-  navigator.push({name: 'detail'});
+  navigator.push({name: 'detail', event :item});
 }
 
   _renderItem(item) {
     const onPress = () => {
-      navigator.push({name: 'detail', event: item});
+      navigator.push({name: 'detail', event: item
+        });
     };
 
     return (
@@ -115,6 +132,8 @@ onDetailPress(){
     );
   }
 }
+reactMixin(mains.prototype, timerMixin);
+
 module.exports = mains;
 
 var styles2 = StyleSheet.create({
@@ -128,3 +147,5 @@ var styles2 = StyleSheet.create({
     marginBottom: 10,
   }
 })
+
+
