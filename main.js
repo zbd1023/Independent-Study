@@ -157,7 +157,7 @@ var styles2 = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 4,
-    fontSize: 14,
+    fontSize: 18,
   },
 
   timerView: {
@@ -167,6 +167,6 @@ var styles2 = StyleSheet.create({
 
   timer: {
     marginBottom: 2,
-    fontSize: 14,
+    fontSize: 18,
   },
 })

@@ -47,7 +47,7 @@ export class registration extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.containerAuth}>
       <StatusBarAuth title="Register Here" />
 
    <TextInput
@@ -151,7 +151,8 @@ module.exports = registration;
 
 var styles2 = StyleSheet.create({
   email: {
-    height: 40,
+    height: 60,
+    fontSize: 20,
     borderColor: '#dddddd',
     backgroundColor: '#f4f4f4',
     borderWidth: 3,
@@ -163,7 +164,8 @@ var styles2 = StyleSheet.create({
   },
 
   password: {
-    height: 40,
+    height: 60,
+    fontSize: 20,
     borderColor: '#dddddd',
     backgroundColor: '#f4f4f4',
     borderWidth: 3,

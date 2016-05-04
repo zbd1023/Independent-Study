@@ -81,13 +81,15 @@ var styles = StyleSheet.create({
     borderWidth: 5,
     borderColor: '#00bd71',
     backgroundColor: '#00bd71',
-    marginTop: 320,
+    position: 'absolute',
+    top: 560,
+    width: 375,
   },
 
   goBackText: {
     color: 'white',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 20,
   },
 
   descriptions: {
@@ -100,21 +102,21 @@ var styles2 = StyleSheet.create({
     marginTop: 5,
     marginLeft: 10,
     marginBottom: 15,
-    fontSize: 16,
+    fontSize: 18,
   },
   dueDate: {
     marginLeft: 10,
     marginBottom: 10,
-    fontSize: 14,
+    fontSize: 18,
   },
   dueIn: {
     marginLeft: 10,
     marginBottom: 2,
-    fontSize: 14,
+    fontSize: 18,
   },
   timer: {
-    marginLeft: 118,
+    marginLeft: 144,
     marginBottom: 2,
-    fontSize: 14,
+    fontSize: 18,
   }
 })

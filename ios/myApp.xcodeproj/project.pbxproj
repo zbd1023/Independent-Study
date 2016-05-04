@@ -625,7 +625,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzzbd;
 				PRODUCT_NAME = myApp;
 				PROVISIONING_PROFILE = "";
 			};
@@ -645,7 +645,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzzbd;
 				PRODUCT_NAME = myApp;
 				PROVISIONING_PROFILE = "";
 			};

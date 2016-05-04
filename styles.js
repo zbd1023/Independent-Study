@@ -12,6 +12,11 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#c5f8ff',
   },
+  containerAuth: {
+    flex: 1,
+    backgroundColor: '#c5f8ff',
+    justifyContent: 'center',
+  },
   listview: {
     flex: 1,
   },
@@ -28,12 +33,12 @@ var styles = StyleSheet.create({
   },
   liTitle: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 5,
   },
   liDue: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 18,
   },
   navbar: {
     alignItems: 'center',
@@ -41,12 +46,12 @@ var styles = StyleSheet.create({
     borderBottomColor: '#eee',
     borderColor: 'transparent',
     justifyContent: 'center',
-    height: 44,
+    height: 60,
     flexDirection: 'row'
   },
   navbarTitle: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 25,
     fontWeight: "500"
   },
   statusbar: {
@@ -58,7 +63,7 @@ var styles = StyleSheet.create({
   },
   actionText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 20,
     textAlign: 'center',
   },
   action: {
@@ -68,8 +73,8 @@ var styles = StyleSheet.create({
     borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
-    marginLeft: 60,
-    marginRight: 60,
+    marginLeft: 50,
+    marginRight: 50,
   },
   actionAuth: {
     backgroundColor: constants.actionAuthColor,
@@ -78,8 +83,8 @@ var styles = StyleSheet.create({
     borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
-    marginLeft: 60,
-    marginRight: 60,
+    marginLeft: 50,
+    marginRight: 50,
   },
 })
 
