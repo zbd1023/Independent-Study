@@ -361,7 +361,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = R88R4897E8;
+						DevelopmentTeam = FB82EX9PQ8;
 					};
 				};
 			};
@@ -629,7 +629,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsafaafzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsazbd;
 				PRODUCT_NAME = "Devil's Reminder";
 				PROVISIONING_PROFILE = "";
 			};
@@ -649,7 +649,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsafaafzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsazbd;
 				PRODUCT_NAME = "Devil's Reminder";
 				PROVISIONING_PROFILE = "";
 			};
