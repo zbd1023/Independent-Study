@@ -629,7 +629,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsafaafzbd;
 				PRODUCT_NAME = "Devil's Reminder";
 				PROVISIONING_PROFILE = "";
 			};
@@ -649,7 +649,7 @@
 				INFOPLIST_FILE = myApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppzzbd;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.myAppsdsafaafzbd;
 				PRODUCT_NAME = "Devil's Reminder";
 				PROVISIONING_PROFILE = "";
 			};
