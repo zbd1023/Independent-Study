@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react-native');
 const {AppRegistry, ListView, StyleSheet, Text,
-  View, TouchableHighlight, AlertIOS, Navigator} = React;
+  View, TouchableHighlight, Alert, Navigator} = React;
 
 const styles = require('./styles.js');
 

@@ -129,7 +129,7 @@ export class registration extends React.Component {
   _renderItem(item) {
 
     const onPress = () => {
-      AlertIOS.alert(
+      Alert.alert(
         'Complete',
         null,
         [
