@@ -84,21 +84,21 @@ export class mains extends React.Component{
     var seconds = Math.floor((((Math.floor(this.state.a/1000)) % 86400) % 3600) % 60);
     return (
       <View style = {styles.container}>
-        <StatusBar title = "Devil's Reminder" />
-        <Text style = {styles2.nextDue}>Time until "{due}" is due:</Text>
-        <View style = {styles2.timerView}>
-          <Text style = {styles2.timer}>
-            {days} days
-          </Text>
-          <Text style = {styles2.timer}>
-            {hours} hours
-          </Text>
-          <Text style = {styles2.timer}>
-            {minutes} minutes
-          </Text>
-          <Text style = {styles2.timer}>
-            {seconds} seconds
-          </Text>
+          <StatusBar title = "List of Assignments" />
+          <Text style = {styles2.nextDue}>Time until "{due}" is due:</Text>
+          <View style = {styles2.timerView}>
+            <Text style = {styles2.timer}>
+              {days} days
+            </Text>
+            <Text style = {styles2.timer}>
+              {hours} hours
+            </Text>
+            <Text style = {styles2.timer}>
+              {minutes} minutes
+            </Text>
+            <Text style = {styles2.timer}>
+              {seconds} seconds
+            </Text>
         </View>
         <ListView
           dataSource = {this.state.dataSource}
@@ -168,5 +168,5 @@ var styles2 = StyleSheet.create({
   timer: {
     marginBottom: 2,
     fontSize: 14,
-  }
+  },
 })

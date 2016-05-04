@@ -10,7 +10,7 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'f2f2f2'
+    backgroundColor: '#c5f8ff',
   },
   listview: {
     flex: 1,
@@ -19,7 +19,7 @@ var styles = StyleSheet.create({
     flex: 2,
   },
   li: {
-    backgroundColor: 'e2f1ff',
+    backgroundColor: '#00bd71',
     paddingLeft: 15,
     paddingTop: 15,
     paddingBottom: 20,
@@ -27,12 +27,12 @@ var styles = StyleSheet.create({
     marginTop: 2,
   },
   liTitle: {
-    color: '#333',
+    color: 'white',
     fontSize: 16,
     marginBottom: 5,
   },
   liDue: {
-    color: '#333',
+    color: 'white',
     fontSize: 14,
   },
   navbar: {
@@ -40,7 +40,6 @@ var styles = StyleSheet.create({
     backgroundColor: '#005ca7',
     borderBottomColor: '#eee',
     borderColor: 'transparent',
-    borderWidth: 1,
     justifyContent: 'center',
     height: 44,
     flexDirection: 'row'

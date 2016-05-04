@@ -154,23 +154,25 @@ module.exports = authenticate;
 var styles2 = StyleSheet.create({
   email: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: '#dddddd',
+    backgroundColor: '#f4f4f4',
+    borderWidth: 3,
     marginLeft: 25,
     marginRight: 25,
     marginBottom: 5,
     marginTop: 10,
-    padding: 5,
+    padding: 8,
   },
 
   password: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: '#dddddd',
+    backgroundColor: '#f4f4f4',
+    borderWidth: 3,
     marginLeft: 25,
     marginRight: 25,
     marginBottom: 10,
-    padding: 5,
+    padding: 8,
   },
 
   login: {

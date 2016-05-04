@@ -46,7 +46,7 @@ class detail extends React.Component{
 
         <TouchableHighlight
           style = {styles.goBack}
-          underlayColor = 'e2f1ff'
+          underlayColor = '#00bd71'
           onPress = {this.onBackPress} >
           <Text style = {styles.goBackText}>Go back to list of assignments</Text>
         </TouchableHighlight>
@@ -76,20 +76,18 @@ module.exports = detail;
 
 var styles = StyleSheet.create({
   goBack: {
-    marginLeft: 61,
-    marginRight: 50,
-    position: 'absolute',
-    top: 560,
+    alignSelf: 'stretch',
     padding: 18,
     borderWidth: 5,
-    borderColor: 'e2f1ff',
-    backgroundColor: 'e2f1ff',
-    borderRadius: 30,
+    borderColor: '#00bd71',
+    backgroundColor: '#00bd71',
+    marginTop: 320,
   },
 
   goBackText: {
+    color: 'white',
     textAlign: 'center',
-    fontSize: 15,
+    fontSize: 16,
   },
 
   descriptions: {
