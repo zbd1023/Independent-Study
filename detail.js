@@ -76,7 +76,6 @@ module.exports = detail;
 
 var styles = StyleSheet.create({
   goBack: {
-    alignSelf: 'stretch',
     padding: 18,
     borderWidth: 5,
     borderColor: '#00bd71',
