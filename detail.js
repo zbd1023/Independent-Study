@@ -76,12 +76,14 @@ module.exports = detail;
 
 var styles = StyleSheet.create({
   goBack: {
-    alignSelf: 'stretch',
     padding: 18,
     borderWidth: 5,
     borderColor: '#00bd71',
     backgroundColor: '#00bd71',
-    marginTop: 320,
+    position: 'absolute',
+    top: 560,
+    width: 375,
+    alignSelf: 'stretch'
   },
 
   goBackText: {
