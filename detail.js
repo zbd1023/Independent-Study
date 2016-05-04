@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react-native');
 const {AppRegistry, ListView, StyleSheet, Text,
-  View, TouchableHighlight, AlertIOS, Alert, Navigator} = React;
+  View, TouchableHighlight, Alert, Navigator} = React;
 import TimerMixin from 'react-timer-mixin';
 const StatusBar = require('./StatusBar.js');
 var nav;
