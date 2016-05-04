@@ -1,52 +1,45 @@
-var Firebase = require('firebase');
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const React = require('react-native');
+const {AppRegistry, ListView, StyleSheet, Text,
+  View, TouchableHighlight, Alert, Navigator} = React;
 
-class myApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+const styles = require('./styles.js')
+const StatusBar = require('./StatusBar.js');
+const ActionButton = require('./ActionButton.js');
+const ListItem = require('./ListItem.js');
+const timer = require('react-native-timer');
+const Firebase = require('firebase');
+const FirebaseUrl = 'https://devils-reminder.firebaseio.com/';
+const Authenticate = require('./authenticate.js')
+const Main = require('./main.js')
+const Detail = require('./detail.js')
+const Registration = require('./registration.js')
+
+var ROUTES= {
+  authenticate: Authenticate,
+  main: Main,
+  detail: Detail,
+  registration: Registration
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+class myApp extends React.Component {
+
+  renderScene(route, navigator){
+    var Component = ROUTES[route.name];
+    return <Component route={route} navigator={navigator} />;
+  }
+
+  render() {
+    return (
+      <Navigator
+        style = {styles.container}
+        initialRoute = {{name: 'authenticate'}}
+        renderScene = {this.renderScene}
+        configureScene = {()=> {return Navigator.SceneConfigs.FloatFromRight;}}
+      />
+    );
+  }
+
+}
 
 AppRegistry.registerComponent('myApp', () => myApp);

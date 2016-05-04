@@ -81,7 +81,7 @@ var styles = StyleSheet.create({
     borderColor: '#00bd71',
     backgroundColor: '#00bd71',
     position: 'absolute',
-    top: 560,
+    top: 450,
     width: 375,
   },
 

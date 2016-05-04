@@ -9,6 +9,8 @@
     "firebase": "^2.4.1",
     "react-mixin": "^2.0.2",
     "react-native": "^0.19.0",
+    "react-native-device": "^1.0.1",
+    "react-native-device-info": "^0.9.3",
     "react-native-timer": "^1.0.3",
     "react-timer-mixin": "^0.13.3"
   }
