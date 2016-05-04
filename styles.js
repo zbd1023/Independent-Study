@@ -73,8 +73,8 @@ var styles = StyleSheet.create({
     borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
-    marginLeft: 50,
-    marginRight: 50,
+    marginLeft: 40,
+    marginRight: 40,
   },
   actionAuth: {
     backgroundColor: constants.actionAuthColor,
@@ -83,8 +83,8 @@ var styles = StyleSheet.create({
     borderRadius: 20,
     paddingTop: 14,
     paddingBottom: 16,
-    marginLeft: 50,
-    marginRight: 50,
+    marginLeft: 40,
+    marginRight: 40,
   },
 })
 

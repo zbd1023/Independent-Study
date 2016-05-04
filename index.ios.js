@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react-native');
 const {AppRegistry, ListView, StyleSheet, Text,
-  View, TouchableHighlight, AlertIOS, Navigator} = React;
+  View, TouchableHighlight, Alert, Navigator} = React;
 
 const styles = require('./styles.js')
 const StatusBar = require('./StatusBar.js');
@@ -33,7 +33,7 @@ class myApp extends React.Component {
     return (
       <Navigator
         style = {styles.container}
-        initialRoute = {{name: 'main'}}
+        initialRoute = {{name: 'authenticate'}}
         renderScene = {this.renderScene}
         configureScene = {()=> {return Navigator.SceneConfigs.FloatFromRight;}}
       />

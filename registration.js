@@ -18,7 +18,6 @@ const {
   Text,
   View,
   TouchableHighlight,
-  AlertIOS,
   TextInput,
   Alert,
   Navigator
@@ -87,7 +86,7 @@ export class registration extends React.Component {
 
 
   _addItem() {
-    AlertIOS.alert(
+    Alert.alert(
       'Add New Item',
       null,
       [

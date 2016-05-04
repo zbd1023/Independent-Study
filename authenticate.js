@@ -18,9 +18,9 @@ const {
   Text,
   View,
   TouchableHighlight,
-  AlertIOS,
-  TextInput,
   Alert,
+  TextInput,
+
   Navigator
 } = React;
 
@@ -97,7 +97,7 @@ export class authenticate extends React.Component {
   }
 
   _addItem() {
-    AlertIOS.alert(
+    Alert.alert(
       'Add New Item',
       null,
       [

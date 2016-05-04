@@ -1,7 +1,7 @@
 'use strict';
 const React = require('react-native');
 const {AppRegistry, ListView, StyleSheet, Text,
-  View, TouchableHighlight, AlertIOS, Navigator} = React;
+  View, TouchableHighlight, Navigator} = React;
 
 const styles = require('./styles.js')
 const StatusBar = require('./StatusBar.js');
@@ -112,25 +112,6 @@ export class mains extends React.Component{
     return
   }
 
-  _addItem() {
-    AlertIOS.alert(
-      'Add New Assignment',
-      null,
-      [
-        {
-          text: 'Add',
-          onPress: (text) => {
-            this.itemsRef.push({title: text })
-          }
-        },
-        {
-          text: 'Cancel',
-          onPress: (text) => {}
-        },
-      ],
-      'plain-text'
-    );
-  }
 
 onDetailPress(){
 

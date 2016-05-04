@@ -114,7 +114,7 @@ var styles2 = StyleSheet.create({
     fontSize: 18,
   },
   timer: {
-    marginLeft: 144,
+    marginLeft: 150,
     marginBottom: 2,
     fontSize: 18,
   }
