@@ -89,6 +89,7 @@ var styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 20,
+    fontFamily: 'Helvetica',
   },
 
   descriptions: {
@@ -102,20 +103,24 @@ var styles2 = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 15,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
   dueDate: {
     marginLeft: 10,
     marginBottom: 10,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
   dueIn: {
     marginLeft: 10,
     marginBottom: 2,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
   timer: {
     marginLeft: 150,
     marginBottom: 2,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   }
 })

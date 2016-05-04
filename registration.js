@@ -152,6 +152,7 @@ var styles2 = StyleSheet.create({
   email: {
     height: 60,
     fontSize: 20,
+    fontFamily: 'Helvetica',
     borderColor: '#dddddd',
     backgroundColor: '#f4f4f4',
     borderWidth: 3,
@@ -165,6 +166,7 @@ var styles2 = StyleSheet.create({
   password: {
     height: 60,
     fontSize: 20,
+    fontFamily: 'Helvetica',
     borderColor: '#dddddd',
     backgroundColor: '#f4f4f4',
     borderWidth: 3,

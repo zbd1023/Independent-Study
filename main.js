@@ -55,6 +55,13 @@ export class mains extends React.Component{
         });
       });
 
+
+      var allTimes = [];
+      for(var i =0; i < items.length; i++){
+        if(Date.parse(items[i].date) - Date.now() < 0){
+          items.splice(i,1);
+        }
+      }
       for(var a = 0; a<items.length; a++){
         if(minimum > Date.parse(items[a].date)){
           minimum = Date.parse(items[a].date);
@@ -139,6 +146,7 @@ var styles2 = StyleSheet.create({
     marginTop: 10,
     marginBottom: 4,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
 
   timerView: {
@@ -149,5 +157,6 @@ var styles2 = StyleSheet.create({
   timer: {
     marginBottom: 2,
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
 })

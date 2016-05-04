@@ -34,11 +34,13 @@ var styles = StyleSheet.create({
   liTitle: {
     color: 'white',
     fontSize: 20,
+    fontFamily: 'Helvetica',
     marginBottom: 5,
   },
   liDue: {
     color: 'white',
     fontSize: 18,
+    fontFamily: 'Helvetica',
   },
   navbar: {
     alignItems: 'center',
@@ -52,6 +54,7 @@ var styles = StyleSheet.create({
   navbarTitle: {
     color: 'white',
     fontSize: 25,
+    fontFamily: 'Helvetica',
     fontWeight: "500"
   },
   statusbar: {
@@ -64,6 +67,7 @@ var styles = StyleSheet.create({
   actionText: {
     color: '#fff',
     fontSize: 20,
+    fontFamily: 'Helvetica',
     textAlign: 'center',
   },
   action: {
