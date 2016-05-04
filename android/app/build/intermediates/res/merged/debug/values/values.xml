@@ -221,7 +221,7 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/Users/kiyoonko/Documents/Independent-Study/android/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="app_name">myApp</string>
+    <string name="app_name">"Devil's Reminder'"</string>
     <!-- From: file:/Users/kiyoonko/Documents/Independent-Study/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.19.1/res/values/values.xml -->
     <eat-comment/>
     <string name="catalyst_debugjs" project="catalyst" translatable="false">Debug in Chrome</string>
